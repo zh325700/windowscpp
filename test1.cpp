@@ -13,7 +13,6 @@ public:
 };
 
 int main(){
-
 //  different ways to loop through the
 	vector<int> a{1,2,3,4,5};
 	for_each(a.begin(),a.end(),[](int &x){x = x+1;});
