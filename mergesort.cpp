@@ -4,50 +4,53 @@
 using namespace std;
 
 void merge(vector<int> &nums, int start, int end, int middleindex){
-    int sizeleft = middleindex -start +1;
+    int i,j,k;
+    int sizeleft = middleindex - start +1;
     int sizeright = end - middleindex;
     vector<int> left(sizeleft,0);
     vector<int> right(sizeright,0);
     // initializing the two arrays: l and r
-    for(int i = 0; i<sizeleft; i++){
+    for(i = 0; i<sizeleft; i++){
       left[i] = nums[start+i];
     }
-    for(int j =0; j<sizeright; j++){
+    for(j =0; j<sizeright; j++){
       right[j] = nums[middleindex +j+1];
     }
     //merge two arrays and paste teh value to nums
-    int i =0;
-    int j=0;
-    int k=start;
+    i=0;
+    j=0;
+    k=start;
     while(i<=sizeleft-1 && j<=sizeright-1){
         if(left[i] <= right[j]){
-          nums[k] =left[i];
+          nums[k] = left[i];
           i++;
-          k++;
         }else{
           nums[k] = right[j];
           j++;
-          k++;
         }
+        k++;
     }
       while(i<=sizeleft-1){
         nums[k] =left[i];
         i++;
         k++;
       }
-
+    //
       while(j<=sizeright-1){
-        nums[k] =left[j];
+        nums[k] =right[j];
         j++;
         k++;
-
     }
   }
 
+
+
+
+
 void mergesort (vector<int> &nums, int start, int end){
-  if(start == end){
-    return;
-  }
+  // if(start == end){
+  //   return;
+  // }
   if(start < end){
     int middleindex = (start+end)/2;
     mergesort(nums,start,middleindex);
@@ -57,6 +60,7 @@ void mergesort (vector<int> &nums, int start, int end){
 
   }
 }
+
 
 /* UTILITY FUNCTIONS */
 /* Function to print an array */
