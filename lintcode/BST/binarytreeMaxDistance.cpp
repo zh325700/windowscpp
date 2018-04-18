@@ -77,13 +77,14 @@ int treeDistance(BiTree root)
   return maxdistance;
 }
 
+
 int main()
 {
     BiTree root = new(BiTNode);
     root->right = root->left = NULL;
     createTree(root);
     cout << "height:" << height(root) << endl;
-    cout << "treeDistance:" << treeDistance(root) << endl;
+    cout << "treeDistance:" << treeDistance(root->right) << endl;
     cout << "_____________________" << endl;
     deleteTree(root);
   }
