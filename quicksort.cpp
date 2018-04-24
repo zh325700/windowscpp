@@ -34,6 +34,8 @@ int partition (int arr[], int low, int high)
     return (i + 1);
 }
 
+
+
 /* The main function that implements QuickSort
  arr[] --> Array to be sorted,
   low  --> Starting index,
@@ -59,7 +61,7 @@ void printArray(int arr[], int size)
     int i;
     for (i=0; i < size; i++)
         printf("%d ", arr[i]);
-    printf("n");
+    printf("\n");
 }
 
 // Driver program to test above functions
@@ -68,7 +70,7 @@ int main()
     int arr[] = {10, 7, 8, 9, 1, 5};
     int n = sizeof(arr)/sizeof(arr[0]);
     quickSort(arr, 0, n-1);
-    printf("Sorted array: n");
+    printf("Sorted array: ");
     printArray(arr, n);
     cout<<endl;
     return 0;

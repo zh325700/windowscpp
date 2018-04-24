@@ -36,4 +36,9 @@ int main(){
   // advance(ptr, 5);
   cout<<*ptr<<endl;
 
+
+
+  cout<< "start from here"<<endl;
+  vector<int> nihao(2,0);
+  cout<<&nihao[0]<<endl<<&nihao[1]<<endl;
 }
