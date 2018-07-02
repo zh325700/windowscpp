@@ -1,4 +1,7 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
+#include <array>
 
 using namespace std;
 
@@ -13,4 +16,12 @@ int main(){
   for(auto n :a){
     cout<<*n<<endl;
   }
+
+  int array1[] = {1,2,3,4};
+  auto iter = max_element(array1,array1+sizeof(array1)/sizeof(array1[0]));
+  cout<<"The index of max value is: "<<distance(array1,iter)<<endl;
+  cout<<"The max value is: "<<*iter<<endl;
+
+
+
 }
