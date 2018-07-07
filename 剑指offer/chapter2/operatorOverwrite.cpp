@@ -37,7 +37,6 @@ CMYString& CMYString::operator =(const CMYString& str){
   return *this;
 }
 
-
 int main(){
   CMYString A("qunimade");
   CMYString B("wohenhao");
