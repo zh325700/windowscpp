@@ -25,10 +25,19 @@ int countWithMovingFlag(int n){
   return count;
 }
 
+int countUingMagic(int n){
+  int count = 0;
+  while(n){
+    n = (n-1) & n;
+    count++;
+  }
+  return count;
+}
+
 int main(){
   int n=0;
   while(cin>>n){
-    cout<< countWithMovingFlag(n)<<endl;
+    cout<< countUingMagic(n)<<endl;
   }
   return 0;
 }
