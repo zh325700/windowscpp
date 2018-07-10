@@ -32,14 +32,21 @@ double power(double base, int exponent){
 }
 
 double powerWithUnsigned(double base ,unsigned int exponent){
-  double result = 1.0;
-  for(int i=0;i<exponent;i++){
-    result*= base;
+  if(exponent == 0){
+    return 1;
+  }else if(exponent ==1){
+    return base;
+  }else{
+    double result = powerWithUnsigned(base,exponent>>1);
+    result *= result;
+    if(exponent & 1 == 1){
+      result *= base;
+    }
+    return result;
   }
-  return result;
 }
 
 int main(){
-  cout<<power(2,6)<<endl;
+  cout<<power(2,0)<<endl;
   return 0;
 }
