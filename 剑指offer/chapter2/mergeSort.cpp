@@ -3,56 +3,47 @@
 
 using namespace std;
 
-void merge(vector<int> &nums, int start, int end, int middleindex){
-    int i,j,k;
-    int sizeleft = middleindex - start +1;
-    int sizeright = end - middleindex;
-    vector<int> left(sizeleft,0);
-    vector<int> right(sizeright,0);
-    // initializing the two arrays: l and r
-    for(i = 0; i<sizeleft; i++){
-      left[i] = nums[start+i];
+void merge(vector<int> &arr, int start, int end, int middleindex){
+    int i,j;
+    int n1 = middleindex - start +1;
+    int n2 = end - middleindex;
+    vector<int> arrLeft(n1,0);
+    vector<int> arrRight(n2,0);
+    for(i=0;i<n1;i++){
+      arrLeft[i] = arr[start+i];
     }
-    for(j =0; j<sizeright; j++){
-      right[j] = nums[middleindex +j+1];
+    for(j=0;j<n2;j++){
+      arrRight[j] = arr[middleindex+j+1];
     }
-    //merge two arrays and paste teh value to nums
-    i=0;
-    j=0;
-    k=start;
-    while(i<=sizeleft-1 && j<=sizeright-1){
-        if(left[i] <= right[j]){
-          nums[k] = left[i];
-          i++;
-        }else{
-          nums[k] = right[j];
-          j++;
-        }
-        k++;
-    }
-      while(i<=sizeleft-1){
-        nums[k] =left[i];
-        i++;
-        k++;
+    i=0;j=0;
+    int k = start;
+    while(i < n1 && j<n2){
+      if(arrLeft[i] < arrRight[j]){
+        arr[k] = arrLeft[i];
+        k++;i++;
+      }else{
+        arr[k] = arrRight[j];
+        k++;j++;
       }
-      while(j<=sizeright-1){
-        nums[k] =right[j];
-        j++;
-        k++;
     }
-  }
+    while(i < n1){
+      arr[k] = arrLeft[i];
+      k++;i++;
+    }
+    while(j < n2){
+      arr[k] = arrRight[j];
+      k++;
+      j++;
+    }
+}
 
-void mergesort (vector<int> &nums, int start, int end){
-  // if(start == end){
-  //   return;
-  // }
+void mergesort(vector<int> &arr, int start, int end){
   if(start < end){
-    int middleindex = (start+end)>>1;
-    mergesort(nums,start,middleindex);
-    mergesort(nums,middleindex+1,end);
+    int middleindex = (start + end)>>1;
+    mergesort(arr, start, middleindex);
+    mergesort(arr, middleindex +1,end);
 
-    merge(nums,start,end,middleindex);
-
+    merge(arr,start,end,middleindex);
   }
 }
 /* UTILITY FUNCTIONS */
